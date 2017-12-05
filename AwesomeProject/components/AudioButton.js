@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image, Alert } from 'react-native';
+import { Audio }from 'expo';
 
 export default class AudioButton extends Component {
-  _onPressButton() {
-    Alert.alert('You pressed the button!')
+  async _onPressButton() {
+    const soundObject = new Audio.Sound();
+    try {
+      await soundObject.loadAsync(require(`../sounds/jat1.mp3`));
+      await soundObject.playAsync();
+    } catch (error) {
+      // An error occurred!
+    }
   }
 
-  _onLongPressButton() {
-    Alert.alert('You long-pressed the button!')
+  _onLongPressButton = () => {
+    Alert.alert(`${this.props.sound}`)
   }
 
   render() {

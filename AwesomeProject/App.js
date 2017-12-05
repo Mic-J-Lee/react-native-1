@@ -8,12 +8,9 @@ export default class Blah extends Component {
   constructor() {
     super();
     this.state = {
-      question: '',
+      question: 'yat1',
       answers: ['One', 'Two', 'Threeeee', 'Four', 'Five', 'Six']
     };
-  }
-  _myFunction() {
-
   }
 
   render() {
@@ -22,7 +19,7 @@ export default class Blah extends Component {
         <View style={styles.topBar} />
 
         <View style={styles.question}>
-          <AudioButton />
+          <AudioButton sound={this.state.question}/>
         </View>
 
         <View style={styles.multipleChoiceAnswers}>
