@@ -5,18 +5,19 @@ export default class MultipleChoices extends Component {
 
   render() {
     const choices = this.props.answers
+    const answer = this.props.answer
     return (
       <View>
           <View style={styleRow}>
-             <Choice content={choices[0]} />
-             <Choice content={choices[1]} />
-             <Choice content={choices[2]} />
+             <Choice content={choices[0]} answer={answer} _getNewWord={this.props._getNewWord} />
+             <Choice content={choices[1]} answer={answer} _getNewWord={this.props._getNewWord} />
+             <Choice content={choices[2]} answer={answer} _getNewWord={this.props._getNewWord} />
           </View>
 
           <View style={styleRow}>
-             <Choice content={choices[3]} />
-             <Choice content={choices[4]} />
-             <Choice content={choices[5]} />
+             <Choice content={choices[3]} answer={answer} _getNewWord={this.props._getNewWord} />
+             <Choice content={choices[4]} answer={answer} _getNewWord={this.props._getNewWord} />
+             <Choice content={choices[5]} answer={answer} _getNewWord={this.props._getNewWord} />
           </View>
       </View>
     );
@@ -25,8 +26,13 @@ export default class MultipleChoices extends Component {
 
 class Choice extends Component {
 
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
+  _onPressButton = () => {
+    if (this.props.answer != this.props.content) {
+      Alert.alert('Wrong, try again!')
+    } else {
+      this.props._getNewWord()
+    }
+
   }
 
   render() {

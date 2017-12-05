@@ -1,0 +1,6 @@
+exports.jat1 = require('./jat1.mp3')
+exports.ji6 = require('./ji6.mp3')
+exports.saam1 = require('./saam1.mp3')
+exports.sei3 = require('./sei3.mp3')
+exports.ng5 = require('./ng5.mp3')
+exports.luk6 = require('./luk6.mp3')
