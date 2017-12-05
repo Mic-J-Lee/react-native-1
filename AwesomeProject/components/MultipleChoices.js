@@ -2,54 +2,44 @@ import React, { Component } from 'react';
 import { View, Alert, TouchableOpacity, Text } from 'react-native';
 
 export default class MultipleChoices extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
-  }
 
   render() {
+    const choices = this.props.answers
     return (
       <View>
           <View style={styleRow}>
-             <View style={styleButton}>
-               <TouchableOpacity onPress={this._onPressButton}>
-                 <Text style={styleText}>{choices[0]}</Text>
-               </TouchableOpacity>  
-             </View>
-             <View style={styleButton}>
-               <TouchableOpacity onPress={this._onPressButton}>
-                 <Text style={styleText}>{choices[1]}</Text>
-               </TouchableOpacity>  
-             </View>
-             <View style={styleButton}>
-               <TouchableOpacity onPress={this._onPressButton}>
-                 <Text style={styleText}>{choices[2]}</Text>
-               </TouchableOpacity>  
-             </View>
+             <Choice content={choices[0]} />
+             <Choice content={choices[1]} />
+             <Choice content={choices[2]} />
           </View>
 
           <View style={styleRow}>
-             <View style={styleButton}>
-               <TouchableOpacity onPress={this._onPressButton}>
-                 <Text style={styleText}>{choices[3]}</Text>
-               </TouchableOpacity>  
-             </View>
-             <View style={styleButton}>
-               <TouchableOpacity onPress={this._onPressButton}>
-                 <Text style={styleText}>{choices[4]}</Text>
-               </TouchableOpacity>  
-             </View>
-             <View style={styleButton}>
-               <TouchableOpacity onPress={this._onPressButton}>
-                 <Text style={styleText}>{choices[5]}</Text>
-               </TouchableOpacity>  
-             </View>
+             <Choice content={choices[3]} />
+             <Choice content={choices[4]} />
+             <Choice content={choices[5]} />
           </View>
       </View>
     );
   }
 }
 
-let choices = ['One', 'Two', 'Threeeee', 'Four', 'Five', 'Six']
+class Choice extends Component {
+
+  _onPressButton() {
+    Alert.alert('You tapped the button!')
+  }
+
+  render() {
+    return (
+      <View style={styleButton}>
+        <TouchableOpacity onPress={this._onPressButton}>
+          <Text style={styleText}>{this.props.content}</Text>
+        </TouchableOpacity>  
+      </View>
+    );
+  }
+}
+
 const styleRow = {
   flex: 1,
   flexDirection: 'row',

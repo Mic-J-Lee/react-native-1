@@ -5,6 +5,13 @@ import MultipleChoices from './components/MultipleChoices';
 
 
 export default class Blah extends Component {
+  constructor() {
+    super();
+    this.state = {
+      question: '',
+      answers: ['One', 'Two', 'Threeeee', 'Four', 'Five', 'Six']
+    };
+  }
   _myFunction() {
 
   }
@@ -19,7 +26,7 @@ export default class Blah extends Component {
         </View>
 
         <View style={styles.multipleChoiceAnswers}>
-          <MultipleChoices />
+          <MultipleChoices answers={this.state.answers} />
         </View>
       </View>
     );
